@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :users, expect:[ :new, :edit ]
+  resources :users, except: [ :new, :edit ]
   root 'application#hello_world'
 end
