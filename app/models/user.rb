@@ -4,6 +4,6 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :password, presence: true, allow_blank: true
     validates :password_confirmation, presence: true, allow_blank: true
-    
-    
+    scope :sort_user, -> { order(id: :ASC)}
+
 end
