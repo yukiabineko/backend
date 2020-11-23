@@ -28,6 +28,12 @@ class UsersController < ApplicationController
     render json: user
   end
 
+  def destroy
+    user = User.find( params[:id] )
+    user.destroy
+    render json: {message: '削除しました。'}
+  end
+
 private
   def user_parameter
     params.permit( :name, :email, :password, :password_confirmation)
