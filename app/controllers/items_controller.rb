@@ -28,6 +28,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find( params[:id] )
+    item.destroy
+    render json: {message: '削除しました。'}
+  end
+  
+
 private
   def item_parameter
     params.permit( :name, :price, :category, :info )
