@@ -35,4 +35,16 @@ Item.create!(
     category: '貝類',
     info: '風味のある色々な調理に向いてます。'
 )
+Order.create!(
+    name: '真あじ',
+    price: 120,
+    oder_day: Date.new,
+    stock: 12
+)
+Order.create!(
+    name: '帆立貝',
+    price: 150,
+    oder_day: Date.new,
+    stock: 10
+)
 
