@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   def update
     order = Order.find( params[:id] )
     if order.update_attributes( order_parameter )
-      render json: {message: '登録しました。'}
+      render json: {message: '編集しました。'}
     else
       render json: {message: '失敗しました。'}
     end
