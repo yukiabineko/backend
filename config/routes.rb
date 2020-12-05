@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :sessions, only:[ :create]
   resources :items, except: [ :new, :edit]
   resources :orders, except: [ :new, :edit, :show ]
+  resources :processings, except: [ :new, :edit, :index, :update]
   root 'application#hello_world'
 end
