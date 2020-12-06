@@ -45,4 +45,12 @@ Order.create!(
     price: 150,
     stock: 10
 )
+Processing.create!(
+	processing_name: '刺身',
+	item_id: 1
+)
+Processing.create!(
+	processing_name: '塩焼き',
+	item_id: 1
+)
 

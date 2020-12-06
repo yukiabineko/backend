@@ -6,13 +6,12 @@ class ProcessingsController < ApplicationController
   end
 
   def create
-    item = Item.find( params[:item_id] )
-    processing = item.processings.new(processing_name: params[:processing_name])
-    if processings.save
-      render json: {message: '登録しました。'}
-    else
-      render json: {message: '失敗しました。'}
+    item = Item.find( params[:id] )
+    params[:data].each do |data|
+      processing = item.processings.new(processing_name: data[:value])
+      processing.save
     end
+    render json:{message: '送信しました。'}
   end
 
 
