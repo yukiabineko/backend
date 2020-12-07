@@ -16,7 +16,9 @@ class ProcessingsController < ApplicationController
 
 
   def destroy
-    
+    processing = Processing.find( params[:id] )
+    processing.destroy
+    render json: {message: '削除しました。'}
   end
   
   
