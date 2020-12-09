@@ -53,4 +53,12 @@ Processing.create!(
 	processing_name: '塩焼き',
 	item_id: 1
 )
+Processing.create!(
+	processing_name: '切り身',
+	item_id: 2
+)
+Processing.create!(
+	processing_name: '煮付け',
+	item_id: 2
+)
 
