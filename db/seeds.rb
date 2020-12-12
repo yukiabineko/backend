@@ -38,12 +38,14 @@ Item.create!(
 Order.create!(
     name: '真あじ',
     price: 120,
-    stock: 12
+    stock: 12,
+    process: '刺身,塩焼き'
 )
 Order.create!(
     name: '帆立貝',
     price: 150,
-    stock: 10
+    stock: 10,
+    process: '刺身,煮物'
 )
 Processing.create!(
 	processing_name: '刺身',

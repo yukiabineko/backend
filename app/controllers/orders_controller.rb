@@ -6,6 +6,12 @@ class OrdersController < ApplicationController
   
   def create
     order = Order.new( order_parameter )
+    item = Item.find_by(name: params[:name])
+    str = ""
+    item.processing.all.each do |process|
+     str += process.name + ','
+    end
+    order.process = str
     if order.save
       render json: {message: '登録しました。'}
     else
