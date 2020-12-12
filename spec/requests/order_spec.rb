@@ -7,6 +7,13 @@ describe "商品テスト", type: :request  do
       price: 150,
       stock: 26,
       ) }
+    let!(:item) { FactoryBot.create(
+      :item, 
+      name: 'いか',
+      price: 100,
+      category: 'ｲｶ',
+      info: '味噌汁用'
+      ) }
 #############################################################
   describe "ページテスト" do
     it "ページリクエスト成功" do

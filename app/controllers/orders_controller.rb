@@ -7,10 +7,7 @@ class OrdersController < ApplicationController
   def create
     order = Order.new( order_parameter )
     item = Item.find_by(name: params[:name])
-    str = ""
-    item.processings.all.each do |process|
-     str += process.processing_name + ','
-    end
+    str = item.item_processing_array          #=>model
     order.process = str
     if order.save
       render json: {message: '登録しました。'}
