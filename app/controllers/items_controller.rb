@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
     items.each do |item|
      hash = {}
+     hash["id"] = item.id
      hash["name"] = item.name
      hash["price"] = item.price
      hash["category"] = item.category
