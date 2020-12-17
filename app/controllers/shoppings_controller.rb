@@ -8,6 +8,10 @@ class ShoppingsController < ApplicationController
     message = '失敗。'
     user = User.find( params[:id] )
     params[:data].each do |param|
+      order = Order.find_by(name: param[:name])
+      order.stock -= param[:num].to_i
+      order.save
+      
       user.shoppings.create!(
         name: param[:name],
         price: param[:price],
