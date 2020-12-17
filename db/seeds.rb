@@ -63,4 +63,18 @@ Processing.create!(
 	processing_name: '煮付け',
 	item_id: 2
 )
+Shopping.create!(
+    name: '真あじ',
+    price: 120,
+    num: 3,
+    process: '塩焼き',
+    user_id: 2
+)
+Shopping.create!(
+    name: '帆立貝',
+    price: 150,
+    num: 3,
+    process: '塩焼き',
+    user_id: 2
+)
 
