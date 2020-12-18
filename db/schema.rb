@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_022443) do
+ActiveRecord::Schema.define(version: 2020_12_18_025359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_022443) do
   create_table "orders", force: :cascade do |t|
     t.string "name"
     t.integer "price"
-    t.date "oder_day", default: "2020-12-16"
+    t.date "oder_day", default: "2020-12-19"
     t.integer "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,13 +44,14 @@ ActiveRecord::Schema.define(version: 2020_12_15_022443) do
 
   create_table "shoppings", force: :cascade do |t|
     t.string "name"
-    t.date "shopping_date", default: "2020-12-16"
+    t.date "shopping_date", default: "2020-12-19"
     t.integer "price"
     t.integer "num"
     t.string "process"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["user_id"], name: "index_shoppings_on_user_id"
   end
 
