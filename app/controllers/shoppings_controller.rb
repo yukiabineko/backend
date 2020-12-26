@@ -4,6 +4,8 @@ class ShoppingsController < ApplicationController
     render json: shoppings
   end
 
+  #注文作成
+
   def create
     message = '失敗。'
     user = User.find( params[:id] )
@@ -23,6 +25,14 @@ class ShoppingsController < ApplicationController
     render json: {message: message}
   end
 
-  def show
+
+  #ステータス変更
+  def update
+    user = User.find_by(name: params[:name] )
+    puts user.name
+    shopping = Shopping.find( params[:id] )
+    if shopping.update_attributes(status: params[:status])
+      render json: {message: '注文状況を更新しました。'}
+    end
   end
 end
