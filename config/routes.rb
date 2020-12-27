@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'history/show/:user_id', to: 'history#show'
   resources :users, except: [ :new, :edit ]
   resources :sessions, only:[ :create]
   resources :items, except: [ :new, :edit]

@@ -7,4 +7,18 @@ class User < ApplicationRecord
     validates :password_confirmation, presence: true, allow_blank: true
     scope :sort_user, -> { order(id: :ASC)}
 
+    def user_history
+			hash = {}
+			hash[:id] = self.id
+			hash[:name] = self.name
+			hash[:email]= self.email
+
+			array = []
+			self.shoppings.all.each do |shopping|
+				array << shoppings
+			end
+			hash[:orders] = array
+			return hash
+    end
+
 end
