@@ -12,6 +12,7 @@ class User < ApplicationRecord
 			hash[:id] = self.id
 			hash[:name] = self.name
 			hash[:email]= self.email
+			hash[:create] = self.created_at
 
 			array = []
 			self.shoppings.all.each do |shopping|
