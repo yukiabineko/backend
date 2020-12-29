@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.find_by( email: params[ :email ])
     if user&.authenticate(params[:password])
       data  = user.user_history
-      render json: user
+      render json: data
     else
       render json: {message: 'ログインに失敗しました。'}
     end
