@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_025359) do
   create_table "orders", force: :cascade do |t|
     t.string "name"
     t.integer "price"
-    t.date "oder_day", default: "2020-12-19"
+    t.date "oder_day", default: "2020-12-31"
     t.integer "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_025359) do
 
   create_table "shoppings", force: :cascade do |t|
     t.string "name"
-    t.date "shopping_date", default: "2020-12-19"
+    t.string "shopping_date"
     t.integer "price"
     t.integer "num"
     t.string "process"

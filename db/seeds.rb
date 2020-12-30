@@ -68,13 +68,15 @@ Shopping.create!(
     price: 120,
     num: 3,
     process: '塩焼き',
-    user_id: 2
+    user_id: 2,
+    shopping_date: (Date.today + 1).strftime('%Y/%m/%d')
 )
 Shopping.create!(
     name: '帆立貝',
     price: 150,
     num: 3,
     process: '塩焼き',
-    user_id: 2
+    user_id: 2,
+    shopping_date: (Date.today + 1).strftime('%Y/%m/%d')
 )
 
