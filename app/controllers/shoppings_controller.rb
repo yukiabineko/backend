@@ -18,7 +18,8 @@ class ShoppingsController < ApplicationController
         name: param[:name],
         price: param[:price],
         num: param[:num],
-        process: param[:process]
+        process: param[:process],
+        shopping_date: (Date.today + 1).strftime('%Y/%m/%d')
       )
       message ='注文しました。'
     end
