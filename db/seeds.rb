@@ -9,13 +9,15 @@ User.create!(
     name: '太郎',
     email: 'taro@example.com',
     password: '123',
-    password_confirmation: '123'
+    password_confirmation: '123',
+    admin: true
 )
 User.create!(
     name: '次郎',
     email: 'jiro@example.com',
     password: '123',
-    password_confirmation: '123'
+    password_confirmation: '123',
+    admin: true
 )
 Item.create!(
     name: '真あじ',
