@@ -54,4 +54,13 @@ describe "オーダー削除テスト" do
     expect(response.status).to eq 200
   end
 end
+#####################################################################################
+  describe "オーダー削除テスト" do
+    it "削除される" do
+      count = Order.count
+      get deleteAll_orders_path
+      expect(Order.count).to eq 0       #=>リセット成功
+      expect(response.status).to eq 200
+    end
+  end
 end
