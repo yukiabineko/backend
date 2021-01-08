@@ -32,6 +32,12 @@ class OrdersController < ApplicationController
   end
 
 
+  def deleteAll
+    Order.destroy_all
+    render json: {message: 'リセットしました。'}
+  end
+
+
 private
   def order_parameter
     params.permit( :name, :price, :oder_day, :stock )
