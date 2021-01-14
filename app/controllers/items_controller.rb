@@ -1,7 +1,23 @@
 class ItemsController < ApplicationController
   def index
     items = Item.all
-    render json: items
+    array = []
+
+    items.each do |item|
+     hash = {}
+     hash["id"] = item.id
+     hash["name"] = item.name
+     hash["price"] = item.price
+     hash["category"] = item.category
+     hash["info"] = item.info
+     hash["processes"] = []
+     array << hash
+     item.processings.all.each do |processing|
+      hash["processes"] << processing.processing_name
+     end
+     
+    end
+    render json: array
   end
 
   def show

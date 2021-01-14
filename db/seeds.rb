@@ -9,13 +9,15 @@ User.create!(
     name: '太郎',
     email: 'taro@example.com',
     password: '123',
-    password_confirmation: '123'
+    password_confirmation: '123',
+    admin: true
 )
 User.create!(
     name: '次郎',
     email: 'jiro@example.com',
     password: '123',
-    password_confirmation: '123'
+    password_confirmation: '123',
+    admin: true
 )
 Item.create!(
     name: '真あじ',
@@ -38,13 +40,45 @@ Item.create!(
 Order.create!(
     name: '真あじ',
     price: 120,
-    oder_day: Date.new,
-    stock: 12
+    stock: 12,
+    process: '刺身,塩焼き'
 )
 Order.create!(
     name: '帆立貝',
     price: 150,
-    oder_day: Date.new,
-    stock: 10
+    stock: 10,
+    process: '刺身,煮物'
+)
+Processing.create!(
+	processing_name: '刺身',
+	item_id: 1
+)
+Processing.create!(
+	processing_name: '塩焼き',
+	item_id: 1
+)
+Processing.create!(
+	processing_name: '切り身',
+	item_id: 2
+)
+Processing.create!(
+	processing_name: '煮付け',
+	item_id: 2
+)
+Shopping.create!(
+    name: '真あじ',
+    price: 120,
+    num: 3,
+    process: '塩焼き',
+    user_id: 2,
+    shopping_date: (Date.today + 1).strftime('%Y/%m/%d')
+)
+Shopping.create!(
+    name: '帆立貝',
+    price: 150,
+    num: 3,
+    process: '塩焼き',
+    user_id: 2,
+    shopping_date: (Date.today + 1).strftime('%Y/%m/%d')
 )
 
