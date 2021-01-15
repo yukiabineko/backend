@@ -14,12 +14,14 @@ class ShoppingsController < ApplicationController
       order.stock -= param[:num].to_i
       order.save
       
-      user.shoppings.create!(
+      shoping = user.shoppings.create!(
         name: param[:name],
         price: param[:price],
+        
         num: param[:num],
         process: param[:process],
-        shopping_date: (Date.today + 1).strftime('%Y/%m/%d')
+        shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
+        receiving_time: receiving(param[:time])
       )
       message ='注文しました。'
     end
@@ -35,5 +37,21 @@ class ShoppingsController < ApplicationController
     if shopping.update_attributes(status: params[:status])
       render json: {message: '注文状況を更新しました。'}
     end
+  end
+private
+   #受け取り時間設定
+
+   def receiving(time)
+      time_array = time.split(':')
+      hour = time_array[0]
+      min = time_array[1]
+      time = Time.local(
+        Time.new.year,
+        Time.new.month,
+        Time.new.day,
+        hour,
+        min,0
+      )
+    return time
   end
 end
