@@ -19,6 +19,13 @@ User.create!(
     password_confirmation: '123',
     admin: true
 )
+User.create!(
+    name: '山田',
+    email: 'yamada@example.com',
+    password: '123',
+    password_confirmation: '123',
+    admin: false
+)
 Item.create!(
     name: '真あじ',
     price: 120,
