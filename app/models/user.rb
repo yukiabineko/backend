@@ -21,6 +21,11 @@ class User < ApplicationRecord
 			end
 			hash[:orders] = array
 			return hash
-    end
+		end
+
+		def search_history(n)
+			shoppings.order(shopping_date: :asc).limit(5).offset((n-1)*5)
+		end
+		
 
 end
