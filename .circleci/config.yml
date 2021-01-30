@@ -10,13 +10,10 @@ jobs:
             PGHOST: 127.0.0.1
             RAILS_ENV: test
         #使ってるデータベースとバージョンを指定する。# 「host: localhost」でアクセスできるサービスコンテナイメージ。
-        - image: circleci/postgres:9.6
+        - image: circleci/postgres:9.6.2-alpine
           environment:
-            #それぞれ設定
-            POSTGRES_USER: postgres
-            #下記を書けばパスワードなしでデータベースにログインしてくれる。 
-            POSTGRES_HOST_AUTH_METHOD: trust
-            POSTGRES_DB: portfolio_test
+            POSTGRES_USER: root
+            POSTGRES_DB: circle-test_test
       #自身のアプリ名にする
       working_directory: ~/Portfolio
       steps:
