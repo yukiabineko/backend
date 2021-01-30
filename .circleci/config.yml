@@ -6,7 +6,7 @@ jobs:
         - image: circleci/ruby:2.5.7-node
           environment:
             #自身の登録しているユーザに変える。
-            POSTGRES_USER: postgres 
+            POSTGRES_USER: root 
             PGHOST: 127.0.0.1
             RAILS_ENV: test
         #使ってるデータベースとバージョンを指定する。# 「host: localhost」でアクセスできるサービスコンテナイメージ。
