@@ -34,8 +34,10 @@ jobs:
       # 依存関係をバンドル インストールします
 
       - run:
-          name: 依存関係のインストール
-          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
+          name: update bundler
+          command: |
+            gem update --system
+            gem install bundler
 
       - run: sudo apt install -y postgresql-client || true
 
