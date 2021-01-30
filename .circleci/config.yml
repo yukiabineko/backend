@@ -6,14 +6,17 @@ jobs:
         - image: circleci/ruby:2.6.3-node
           environment:
             #自身の登録しているユーザに変える。
-            POSTGRES_USER: root 
+            POSTGRES_USER: postgres 
             PGHOST: 127.0.0.1
             RAILS_ENV: test
         #使ってるデータベースとバージョンを指定する。# 「host: localhost」でアクセスできるサービスコンテナイメージ。
-        - image: circleci/postgres:9.6.2-alpine
+        - image: circleci/postgres:9.6
           environment:
-            POSTGRES_USER: root
-            POSTGRES_DB: rails-backend_test  
+            #それぞれ設定
+            POSTGRES_USER: postgres
+            #下記を書けばパスワードなしでデータベースにログインしてくれる。 
+            POSTGRES_HOST_AUTH_METHOD: trust
+            POSTGRES_DB: portfolio_test
       #自身のアプリ名にする
       working_directory: ~/Portfolio
       steps:
