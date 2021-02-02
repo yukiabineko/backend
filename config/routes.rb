@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
   resources :processings, except: [ :new, :edit, :index, :update]
   resources :shoppings, except: [ :new, :edit ]
+  resources :sales, only: [:index]
   root 'application#hello_world'
 end
