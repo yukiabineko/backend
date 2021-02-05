@@ -1,6 +1,6 @@
 class Shopping < ApplicationRecord
   belongs_to :user
-  Week = %w('日' '月' '火' '水' '木' '金' '土')
+  Week = %w(日 月 火 水 木 金 土)
 
 
   def self.sale_data(params)
@@ -11,7 +11,7 @@ class Shopping < ApplicationRecord
     datas = where(status: 2).where(shopping_date: first_day .. lase_day).order(shopping_date: :ASC)
     (first_day .. lase_day).each do |day|
        hash = {}
-       hash[:day] = day.strftime('%Y/%m/%d')
+       hash[:day] = day.strftime('%-m/%d')
        hash[:week] = Week[day.wday]
        num_total = 0
        price_total = 0
@@ -19,7 +19,7 @@ class Shopping < ApplicationRecord
       datas.each do |data|
         if  day. == Date.parse(data.shopping_date)
           hash[:num] = num_total += data.num.to_i
-          hash[:total] = price_total += (data.price.to_i * data.num.to_i)
+          hash[:合計] = price_total += (data.price.to_i * data.num.to_i)
         end
       end
       array << hash
