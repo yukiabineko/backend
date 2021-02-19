@@ -42,16 +42,18 @@ private
    #受け取り時間設定
 
    def receiving(time)
-      time_array = time.split(':')
-      hour = time_array[0]
-      min = time_array[1]
-      time = Time.local(
-        Time.new.year,
-        Time.new.month,
-        Time.new.day,
-        hour,
-        min,0
-      )
-    return time
+   if time.present?
+    time_array = time.split(':')
+    hour = time_array[0]
+    min = time_array[1]
+    time = Time.local(
+      Time.new.year,
+      Time.new.month,
+      Time.new.day,
+      hour,
+      min,0
+    )
+   end
+    return time 
   end
 end

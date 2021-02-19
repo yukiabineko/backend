@@ -19,6 +19,13 @@ User.create!(
     password_confirmation: '123',
     admin: true
 )
+User.create!(
+    name: '山田',
+    email: 'yamada@example.com',
+    password: '123',
+    password_confirmation: '123',
+    admin: false
+)
 Item.create!(
     name: '真あじ',
     price: 120,
@@ -81,4 +88,14 @@ Shopping.create!(
     user_id: 2,
     shopping_date: (Date.today + 1).strftime('%Y/%m/%d')
 )
+22.times do |i|
+    Shopping.create!(
+        name: '帆立貝',
+        price: 150,
+        num: 3,
+        process: '塩焼き',
+        user_id: 3,
+        shopping_date: (Date.today + i).strftime('%Y/%m/%d')
+    )
+end
 
