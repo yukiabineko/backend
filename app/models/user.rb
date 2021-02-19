@@ -24,7 +24,7 @@ class User < ApplicationRecord
 		end
 
 		def search_history(n)
-			shoppings.order(shopping_date: :asc).limit(5).offset((n-1)*5)
+			shoppings.order(shopping_date: :desc).limit(5).offset((n-1)*5)
 		end
 		
 
