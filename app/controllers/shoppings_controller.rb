@@ -1,6 +1,6 @@
 class ShoppingsController < ApplicationController
   def index
-    shoppings = User.joins(:shoppings).select('shoppings.*, users.name AS user_name').sort
+    shoppings = User.joins(:shoppings).select('shoppings.*, users.name AS user_name').order(receiving_time: :desc)
     render json: shoppings
   end
 

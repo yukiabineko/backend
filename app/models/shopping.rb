@@ -2,7 +2,6 @@ class Shopping < ApplicationRecord
   belongs_to :user
   Week = %w(日 月 火 水 木 金 土)
 
-  scope :sort, -> { order(receiving_time: :desc) }
 
   # Ex:- scope :active, -> {where(:active => true)}
   def self.sale_data(params)
