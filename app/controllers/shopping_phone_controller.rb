@@ -21,7 +21,7 @@ class ShoppingPhoneController < ApplicationController
     end
    render json: {message: message}
   end
-  
+
   private
    #受け取り時間設定
 
@@ -33,7 +33,7 @@ class ShoppingPhoneController < ApplicationController
     time = Time.local(
       Time.new.year,
       Time.new.month,
-      Time.new.day +1,
+      Time.new.day + 1,
       hour,
       min,0
     )

@@ -49,7 +49,7 @@ private
     time = Time.local(
       Time.new.year,
       Time.new.month,
-      Time.new.day +1,
+      Time.new.day,
       hour,
       min,0
     )
