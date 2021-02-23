@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_many :processings
-  validates :name, presence: true
-  validates :price, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
+  validates :price, presence: true
 
   def item_processing_array
     str = ""

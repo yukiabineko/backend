@@ -1,6 +1,7 @@
 class ShoppingPhoneController < ApplicationController
 
   def create
+    debugger
     message = '失敗。'
     order = Order.find_by(name: params[:name])
     order.stock -= params[:num].to_i

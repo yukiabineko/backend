@@ -1,6 +1,6 @@
 class ShoppingsController < ApplicationController
   def index
-    shoppings = User.joins(:shoppings).select('shoppings.*, users.name AS user_name')
+    shoppings = User.joins(:shoppings).select('shoppings.*, users.name AS user_name').order(receiving_time: :desc)
     render json: shoppings
   end
 
@@ -21,7 +21,7 @@ class ShoppingsController < ApplicationController
         num: param[:num],
         process: param[:process],
         shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
-        receiving_time: receiving(param[:time])
+        receiving_time: param[:time]
       )
       message ='注文しました。'
     end
