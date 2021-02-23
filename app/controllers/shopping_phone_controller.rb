@@ -5,8 +5,9 @@ class ShoppingPhoneController < ApplicationController
     order = Order.find_by(name: params[:name])
     order.stock -= params[:num].to_i
     order.save
-
+    time = receiving( params[:time] )
     user = User.find( params[:id] )
+    
     if params
       shoping = user.shoppings.create(
         name: params[:name],
@@ -14,7 +15,7 @@ class ShoppingPhoneController < ApplicationController
         num: params[:num],
         process: params[:process],
         shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
-        receiving_time:  receiving( params[:time] )
+        receiving_time:  time
         
       )
       message = '登録しました'
