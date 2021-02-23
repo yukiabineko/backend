@@ -15,7 +15,7 @@ class ShoppingPhoneController < ApplicationController
         num: params[:num],
         process: params[:process],
         shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
-        receiving_time: params[:time]
+        receiving_time:  "#{(Date.today + 1).strftime('%Y/%m/%d')} #{param[:time].to_s}"
         
       )
       message = '登録しました'
