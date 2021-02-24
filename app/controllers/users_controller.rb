@@ -29,6 +29,11 @@ class UsersController < ApplicationController
     render json: user.user_history
   end
 
+  def user_show
+    user = User.find_by(name: params[:name] )
+    render json: user.user_history
+  end
+
   def destroy
     user = User.find( params[:id] )
     user.destroy
