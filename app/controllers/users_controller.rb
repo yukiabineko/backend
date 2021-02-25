@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     user = User.new( user_parameter )
     if user.save
-      render json: {message: '登録しました'}
+      render json: {message: '登録しました', user: user.user_history }
     else
       render json: {message: '登録失敗しました。内容を確認してください'}
     end
