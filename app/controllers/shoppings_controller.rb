@@ -13,6 +13,7 @@ class ShoppingsController < ApplicationController
       order = Order.find_by(name: param[:name])
       order.stock -= param[:num].to_i
       order.save
+      time = receiving( param[:time] )
       
       shoping = user.shoppings.create!(
         name: param[:name],
@@ -21,7 +22,7 @@ class ShoppingsController < ApplicationController
         num: param[:num],
         process: param[:process],
         shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
-        receiving_time: "#{(Date.today + 1).strftime('%Y/%m/%d')} #{params[:time].to_s}"
+        receiving_time: time
       )
       message ='注文しました。'
     end
@@ -49,7 +50,7 @@ private
     time = Time.local(
       Time.new.year,
       Time.new.month,
-      Time.new.day,
+      Time.new.day + 1,
       hour,
       min,0
     )
