@@ -5,10 +5,12 @@ class ShoppingPhoneController < ApplicationController
     order = Order.find_by(name: params[:name])
     order.stock -= params[:num].to_i
     order.save
-    time = receiving( params[:time] )
+    
     user = User.find( params[:id] )
     
     if params
+      time = receiving( params[:time] )
+    
       shoping = user.shoppings.create(
         name: params[:name],
         price: params[:price],
