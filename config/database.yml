@@ -27,7 +27,8 @@ development:
 
 test:
   <<: *default
-  database: myproject_test
+  database: rails-backend_test
+
   
 #default: &default
  #adapter: postgresql
