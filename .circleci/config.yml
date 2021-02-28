@@ -17,7 +17,7 @@ jobs:
             POSTGRES_HOST_AUTH_METHOD: trust
             POSTGRES_DB: myproject_test
       #自身のアプリ名にする
-      working_directory: ~/Portfolio
+      working_directory: ~/backend
       steps:
         - checkout
         #bundle キャッシュをリストアする。公式の設定通り。
