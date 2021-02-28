@@ -28,6 +28,7 @@ development:
 test:
   <<: *default
   database: rails-backend_test
+  host: localhost 
 
   
 #default: &default
