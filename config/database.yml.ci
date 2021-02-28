@@ -1,0 +1,7 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: 'root'
+  host: '127.0.0.1'
+  database: rails-backend_test
