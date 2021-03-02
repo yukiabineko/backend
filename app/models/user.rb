@@ -28,8 +28,21 @@ class User < ApplicationRecord
 	end
 
 	##shopping_create
-	
+
 	def user_shopping(param)
+		if param[:time].present?
+			time_array = param[:time].split(':')
+			hour = time_array[0]
+			min = time_array[1]
+			
+			time = Time.local(
+			Time.new.year,
+			Time.new.month,
+			Time.new.day + 1,
+			hour,
+			min,0
+			)
+		end
 	  self.shoppings.create(
 		name: param[:name],
         price: param[:price],
@@ -37,7 +50,7 @@ class User < ApplicationRecord
         num: param[:num],
         process: param[:process],
         shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
-        receiving_time: time
+        receiving_time:  time
 	  )
 	end
 	
