@@ -49,6 +49,7 @@ class User < ApplicationRecord
 		  status: 0,
           receiving_time: time
 		)
+	#すでに同名、同加工法、同日時の場合は既存レコードに注文数追加そうでない場合新規作成
       if record
 		total = record.num.to_i
 		total += param[:num].to_i
