@@ -13,7 +13,6 @@ class ShoppingsController < ApplicationController
       order = Order.find_by(name: param[:name])
       order.stock -= param[:num].to_i
       order.save
-      time = receiving( param[:time] )
       
       user.user_shopping(param)
       message ='注文しました。'

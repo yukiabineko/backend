@@ -27,7 +27,7 @@ class User < ApplicationRecord
 		shoppings.order(shopping_date: :desc).limit(5).offset((n-1)*5)
 	end
 
-	##shopping_create
+	##オーダー登録********************************#
 
 	def user_shopping(param)
 		if param[:time].present?
@@ -43,7 +43,18 @@ class User < ApplicationRecord
 			min,0
 			)
 		end
-	  self.shoppings.create(
+	  record = self.shoppings.find_by(
+		  name: param[:name], 
+		  process: param[:process],
+		  status: 0,
+          receiving_time: time
+		)
+      if record
+		total = record.num.to_i
+		total += param[:num].to_i
+		record.update_attributes(num: total)
+	  else
+		self.shoppings.create(
 		name: param[:name],
         price: param[:price],
         
@@ -52,6 +63,7 @@ class User < ApplicationRecord
         shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
         receiving_time:  time
 	  )
+	  end
 	end
 	
 	
