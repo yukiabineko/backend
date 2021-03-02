@@ -8,24 +8,39 @@ class User < ApplicationRecord
     scope :sort_user, -> { order(id: :ASC)}
 
     def user_history
-			hash = {}
-			hash[:id] = self.id
-			hash[:name] = self.name
-			hash[:email]= self.email
-			hash[:create] = self.created_at
-			hash[:admin] = self.admin
+		hash = {}
+		hash[:id] = self.id
+		hash[:name] = self.name
+		hash[:email]= self.email
+		hash[:create] = self.created_at
+		hash[:admin] = self.admin
 
-			array = []
-			self.shoppings.all.each do |shopping|
-				array << shoppings
-			end
-			hash[:orders] = array
-			return hash
+		array = []
+		self.shoppings.all.each do |shopping|
+			array << shoppings
 		end
+		hash[:orders] = array
+		return hash
+	end
 
-		def search_history(n)
-			shoppings.order(shopping_date: :desc).limit(5).offset((n-1)*5)
-		end
-		
+	def search_history(n)
+		shoppings.order(shopping_date: :desc).limit(5).offset((n-1)*5)
+	end
+
+	##shopping_create
+	
+	def user_shopping(param)
+	  self.shoppings.create(
+		name: param[:name],
+        price: param[:price],
+        
+        num: param[:num],
+        process: param[:process],
+        shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
+        receiving_time: time
+	  )
+	end
+	
+	
 
 end
