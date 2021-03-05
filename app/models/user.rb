@@ -15,12 +15,12 @@ class User < ApplicationRecord
 		hash[:create] = self.created_at
 		hash[:admin] = self.admin
 
-		array = []
-		self.shoppings.all.each do |shopping|
-			array << shoppings
-		end
-		hash[:orders] = array
-		return hash
+			array = []
+			self.shoppings.all.shopping_sort.each do |shopping|
+				array << shoppings
+			end
+			hash[:orders] = array
+			return hash
 	end
 
 	def search_history(n)
