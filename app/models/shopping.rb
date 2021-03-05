@@ -2,7 +2,7 @@ class Shopping < ApplicationRecord
   belongs_to :user
   Week = %w(日 月 火 水 木 金 土)
 
-  scope :shopping_sort, -> { order(shopping_date: :asc)}
+  scope :shopping_sort, -> { order(shopping_date: :desc)}
   
   def self.sale_data(params)
     array = []
