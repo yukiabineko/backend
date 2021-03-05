@@ -16,7 +16,7 @@ class User < ApplicationRecord
 			hash[:admin] = self.admin
 
 			array = []
-			self.shoppings.all.each do |shopping|
+			self.shoppings.all.shopping_sort.each do |shopping|
 				array << shoppings
 			end
 			hash[:orders] = array
