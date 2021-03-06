@@ -9,6 +9,7 @@ User.create!(
     name: '太郎',
     email: 'taro@example.com',
     password: '123',
+    tel: '090-1111-2222',
     password_confirmation: '123',
     admin: true
 )
@@ -16,6 +17,7 @@ User.create!(
     name: '次郎',
     email: 'jiro@example.com',
     password: '123',
+    tel: '090-1112-2222',
     password_confirmation: '123',
     admin: true
 )
@@ -23,6 +25,7 @@ User.create!(
     name: '山田',
     email: 'yamada@example.com',
     password: '123',
+    tel: '090-1113-2222',
     password_confirmation: '123',
     admin: false
 )
