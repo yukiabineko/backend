@@ -12,7 +12,7 @@ class User < ApplicationRecord
 		hash[:id] = self.id
 		hash[:name] = self.name
 		hash[:email]= self.email
-		hash[:tel] = self.tel  if self.tel.present?
+		hash[:tel] = self.tel.present? ?self.tel : ''
 		hash[:create] = self.created_at
 		hash[:admin] = self.admin
 
