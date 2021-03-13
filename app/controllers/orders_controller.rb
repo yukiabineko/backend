@@ -44,6 +44,11 @@ class OrdersController < ApplicationController
       card: params['payjpToken'],
       currency: 'jpy'
     )
+    #Payjp::Charge.create(
+      #amount: 8888, 
+      #card: params['payjpToken'],
+      #currency: 'jpy'
+    #)
     render json: {message: ENV['RAILS_PAYJP_KEY']}
   end
 
