@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :items, except: [ :new, :edit]
   resources :orders, except: [ :new, :edit, :show ] do
     get :deleteAll, on: :collection
+    post :pay, on: :collection
   end
   resources :processings, except: [ :new, :edit, :index, :update]
   resources :shoppings, except: [ :new, :edit ]
