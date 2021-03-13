@@ -44,7 +44,7 @@ class OrdersController < ApplicationController
       card: params['payjpToken'],
       currency: 'jpy'
     )
-    render json: {message: ENV['RAILS_PAYJP_KEY']}
+    render json: {message: "支払い完了しました。"}
   end
 
 
