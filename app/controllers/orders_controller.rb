@@ -40,10 +40,14 @@ class OrdersController < ApplicationController
   def pay
     Payjp.api_key = ENV['RAILS_PAYJP_KEY']
     Payjp::Charge.create(
-      amount: 8888, 
+      amount: params["total"], 
       card: params['payjpToken'],
       currency: 'jpy'
     )
+    user = User.find( params[:id] )
+    user.shoppings.where(shopping_date: Date.today.strftime('%Y/%m/%d')).each do |shopping|
+      shopping.update_attributes(pay: true)
+    end
     render json: {message: "支払い完了しました。"}
   end
 
