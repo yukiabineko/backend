@@ -11,7 +11,7 @@ describe "商品テスト", type: :request  do
 #############################################################
   describe "ページテスト" do
     it "ページリクエスト成功" do
-      get users_path
+      post '/users/index'
       expect(response.status).to eq 200
     end
   end

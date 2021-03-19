@@ -11,7 +11,7 @@ describe "ユーザーテスト", type: :request  do
 #############################################################
   describe "ページテスト" do
     it "ページリクエスト成功" do
-      get users_path
+      post '/users/index'
       expect(response.status).to eq 200
     end
   end
@@ -25,7 +25,7 @@ describe "ユーザーテスト", type: :request  do
         password: '123',
         password_confirmation: '123'
       }
-      expect { post users_path(user), params: valid_params }.to change(User, :count).by(1) #=>ユーザーが増える
+      expect { post "/users", params: valid_params }.to change(User, :count).by(1) #=>ユーザーが増える
       expect(response.status).to eq 200
     end
   end
