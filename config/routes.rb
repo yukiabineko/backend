@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   
   get 'history/show/:user_id', to: 'history#show'
   post 'history/search', to: 'history#search', as: :search
-  resources :users, except: [ :new, :edit, :index ] do
-    post :user_show, on: :collection
+  resources :users, except: [ :new, :edit, :index, :show] do
+    post :user_show,  on: :collection
     post 'index',     on: :collection
+    post 'show',      on: :collection
   end
   resources :sessions, only:[ :create]
   resources :items, except: [ :new, :edit]
