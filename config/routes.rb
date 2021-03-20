@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     post :pay, on: :collection
   end
   resources :processings, except: [ :new, :edit, :index, :update]
-  resources :shoppings, except: [ :new, :edit, :index ] do
+  resources :shoppings, except: [ :new, :edit, :index, :show ] do
     post 'index',    on: :collection
   end
   resources :shopping_phone, only:[:create]
