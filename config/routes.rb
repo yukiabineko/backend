@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     post 'index',    on: :collection
   end
   resources :shopping_phone, only:[:create]
-  resources :sales, only: [:index]
+  post '/sales', to: 'sales#index'
   root 'application#hello_world'
 end
