@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
+  before_action :current_user_check?
   
   def index
-    users = User.all.sort_user
-    render json: users
+    if current_user_check?
+      users = User.all.sort_user
+      render json: users
+    else
+      render json: []
+    end
+    
   end
 
   def create
