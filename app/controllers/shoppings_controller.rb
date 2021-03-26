@@ -13,18 +13,10 @@ class ShoppingsController < ApplicationController
       order = Order.find_by(name: param[:name])
       order.stock -= param[:num].to_i
       order.save
-      time = receiving( param[:time] )
       
-      shoping = user.shoppings.create!(
-        name: param[:name],
-        price: param[:price],
-        
-        num: param[:num],
-        process: param[:process],
-        shopping_date: (Date.today + 1).strftime('%Y/%m/%d'),
-        receiving_time: time
-      )
+      user.user_shopping(param)
       message ='注文しました。'
+      puts "test"
     end
     render json: {message: message}
   end

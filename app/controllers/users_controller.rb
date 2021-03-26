@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
+  before_action :current_user_check?
   
   def index
-    users = User.all.sort_user
-    render json: users
+    if current_user_check?
+      users = User.all.sort_user
+      render json: users
+    else
+      render json: []
+    end
+    
   end
 
   def create
@@ -43,7 +49,7 @@ class UsersController < ApplicationController
 
 private
   def user_parameter
-    params.permit( :name, :email, :password, :password_confirmation)
+    params.permit( :name, :email, :tel,  :password, :password_confirmation)
   end
   
   def set_user
