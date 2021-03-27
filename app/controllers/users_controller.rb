@@ -32,8 +32,12 @@ class UsersController < ApplicationController
 
 
   def show
-    user = User.find( params[:id] )
-    render json: user.user_history
+    if current_user_check?
+      user = User.find( params[:id] )
+      render json: user.user_history
+    else
+      render json: []
+    end
   end
 
   def user_show
