@@ -2,12 +2,10 @@
 #　生鮮食品加工注文アプリ(バックエンド)
 # 使用技術
 
-##
+#
+  * Ruby 2.6.3
+  * Ruby on Rails 5.2.2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
 
 * Ruby version
 

@@ -23,18 +23,24 @@ class UsersController < ApplicationController
         render json: {message: '登録しました', userData: user.user_history}
 
       else
-        render json: {message: '登録失敗しました。内容を確認してください'}
+        render json: {message: '登録失敗しました。操作が不正です。'}
       end
     end
   end
 
+
   def update
-    user = User.find( params[:id] )
-    if user.update_attributes( user_parameter )
-      render json: {message: '編集しました'}
+    if current_user_check?
+      user = User.find( params[:id] )
+      if user.update_attributes( user_parameter )
+        render json: {message: '編集しました'}
+      else
+        render json: {message: '編集失敗しました。内容を確認してください'}
+      end
     else
-      render json: {message: '編集失敗しました。内容を確認してください'}
+      render json: {message: '編集失敗しました。操作が不正です。'}
     end
+    
   end
 
 
