@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     if current_user_check?
       user = User.find( params[:id] )
       user.destroy
-      render json: 
+      render json: {message: '削除しました。'}
     else
       render json: {message: '不正な操作です。削除失敗しました。'}
     end
