@@ -9,4 +9,6 @@
   * 使用API: YoutubeAPI
   * その他使用ツール: Git, VScode, CircleCi
 
-#　機能一覧
+#　機能一覧(API)
+  * お客様CRUD
+  * 商品リストCRUD

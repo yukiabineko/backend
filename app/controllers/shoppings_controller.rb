@@ -1,7 +1,14 @@
 class ShoppingsController < ApplicationController
+  before_action :current_user_check?
+
   def index
-    shoppings = User.joins(:shoppings).select('shoppings.*, users.name AS user_name').order(receiving_time: :desc)
-    render json: shoppings
+    if current_user_check?
+      shoppings = User.joins(:shoppings).select('shoppings.*, users.name AS user_name').order(receiving_time: :desc)
+      render json: shoppings
+    else
+      render json: []
+    end
+    
   end
 
   #注文作成
