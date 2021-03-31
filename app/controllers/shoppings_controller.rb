@@ -14,18 +14,22 @@ class ShoppingsController < ApplicationController
   #注文作成
 
   def create
-    message = '失敗。'
-    user = User.find( params[:id] )
-    params[:data].each do |param|
-      order = Order.find_by(name: param[:name])
-      order.stock -= param[:num].to_i
-      order.save
-      
-      user.user_shopping(param)
-      message ='注文しました。'
-      puts "test"
+    if current_user_check?
+      message = '失敗。'
+      user = User.find( params[:id] )
+      params[:data].each do |param|
+        order = Order.find_by(name: param[:name])
+        order.stock -= param[:num].to_i
+        order.save
+        
+        user.user_shopping(param)
+        message ='注文しました。'
+        puts "test"
+      end
+      render json: {message: message}
+    else
+      render json: {message: '入力が不正です。失敗しました。'}
     end
-    render json: {message: message}
   end
 
 
