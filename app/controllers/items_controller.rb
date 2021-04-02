@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    items = Item.all
+    items = Item.all.order(id: :asc)
     array = []
 
     items.each do |item|
