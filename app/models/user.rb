@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :shoppings
+    has_many :shoppings, dependent: :destroy
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
     validates :password, presence: true, allow_blank: true
