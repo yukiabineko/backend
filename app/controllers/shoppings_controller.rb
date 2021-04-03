@@ -3,7 +3,7 @@ class ShoppingsController < ApplicationController
 
   def index
     if current_user_check?
-      shoppings = User.joins(:shoppings).select('shoppings.*, users.name AS user_name').order(receiving_time: :desc)
+      shoppings = User.joins(:shoppings).select('shoppings.*, users.name AS user_name').order(receiving_time: :asc)
       render json: shoppings
     else
       render json: []
