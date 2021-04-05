@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         render json: {message: '登録しました', userData: user.user_history}
 
       else
-        errors = user.errors_message_set
+        errors = user.errors.full_messages
         render json: {message: errors}
       end
     end

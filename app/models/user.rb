@@ -69,11 +69,6 @@ class User < ApplicationRecord
 	  )
 	  end
 	end
-	#エラーメッセージを加工
-	def errors_message_set
-		str = ''
-		errors.full_messages.each{|err| str += err + ","}
-	    return str
-	end
+	
 
 end
