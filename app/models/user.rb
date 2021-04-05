@@ -72,7 +72,7 @@ class User < ApplicationRecord
 	#エラーメッセージを加工
 	def errors_message_set
 		str = ''
-		errors_full_messages.each{|err| str += err + '\n'}
+		errors.full_messages.each{|err| str += err + '\n'}
 	    return str
 	end
 

@@ -7,6 +7,15 @@ ja:
         processed: 加工済み
         passed: 受け渡し済み 
   activerecord:
+    models:
+      user: 会員
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        tel: 電話番号
+        password: パスワード
+        password_confirmation: パスワード確認
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
