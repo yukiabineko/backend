@@ -3,6 +3,8 @@ class User < ApplicationRecord
     has_many :shoppings, dependent: :destroy
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
+	VALID_PHONE_NUMBER_REGEX = /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/
+	validates :tel, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
     validates :password, presence: true, allow_blank: true
     validates :password_confirmation, presence: true, allow_blank: true
     scope :sort_user, -> { order(id: :ASC)}
@@ -67,7 +69,11 @@ class User < ApplicationRecord
 	  )
 	  end
 	end
-	
-	
+	#エラーメッセージを加工
+	def errors_message_set
+		str = ''
+		errors_full_messages.each{|err| str += err + '\n'}
+	    return str
+	end
 
 end

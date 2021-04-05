@@ -23,7 +23,8 @@ class UsersController < ApplicationController
         render json: {message: '登録しました', userData: user.user_history}
 
       else
-        render json: {message: '登録失敗しました。操作が不正です。'}
+        errors = user.errors_message_set
+        render json: {message: errors'}
       end
     end
   end
