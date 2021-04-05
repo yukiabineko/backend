@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
       else
         errors = user.errors_message_set
-        render json: {message: errors'}
+        render json: {message: errors}
       end
     end
   end
