@@ -16,6 +16,11 @@ ja:
         tel: 電話番号
         password: パスワード
         password_confirmation: パスワード確認
+      item:
+        name: 商品名
+        price: 価格
+        category: カテゴリー
+        info: 商品情報
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

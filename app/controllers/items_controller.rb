@@ -30,7 +30,8 @@ class ItemsController < ApplicationController
     if item.save
       render json: {message: '商品登録しました。'}
     else
-      render json: {message: '失敗しました。'}
+      errors = item.errors.full_messages
+      render json: {message: errors}
     end
   end
 

@@ -39,7 +39,8 @@ class UsersController < ApplicationController
         render json: {message: '編集失敗しました。内容を確認してください'}
       end
     else
-      render json: {message: '編集失敗しました。操作が不正です。'}
+      errors = user.errors.full_messages
+      render json: {message: errors}
     end
     
   end
