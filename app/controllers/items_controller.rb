@@ -41,7 +41,8 @@ class ItemsController < ApplicationController
     if item.update_attributes(item_parameter)
       render json: {message: '編集しました。'}
     else
-      render json: {message: '失敗しました。'}
+      errors = item.errors.full_messages
+      render json: {message: errors}
     end
   end
 
