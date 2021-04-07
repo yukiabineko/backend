@@ -36,11 +36,11 @@ class UsersController < ApplicationController
       if user.update_attributes( user_parameter )
         render json: {message: '編集しました'}
       else
-        render json: {message: '編集失敗しました。内容を確認してください'}
+        errors = user.errors.full_messages
+        render json: {message: errors}  
       end
     else
-      errors = user.errors.full_messages
-      render json: {message: errors}
+      render json: {message: '編集失敗しました。不正な動作です。'}
     end
     
   end
