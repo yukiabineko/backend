@@ -48,7 +48,11 @@ describe "ユーザーテスト", type: :request  do
   end
   describe "ユーザー削除テスト" do
     it "削除される" do
-      expect { delete user_path(user)}.to change(User, :count).by(-1) #=>ユーザーが減る
+      valid_params = { 
+        email: 'koto@example.com',
+        password: '123',
+      }
+      expect { delete user_path(user), params: valid_params}.to change(User, :count).by(-1) #=>ユーザーが減る
       expect(response.status).to eq 200
     end
   end
