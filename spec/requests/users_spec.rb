@@ -5,6 +5,7 @@ describe "ユーザーテスト", type: :request  do
       :user, 
       name: '小太郎',
       email: 'koto@example.com',
+      tel: '090-7889-1122',
       password: '123',
       password_confirmation: '123'
       ) }
@@ -22,6 +23,7 @@ describe "ユーザーテスト", type: :request  do
       valid_params = { 
         name: 'ポチ', 
         email: 'pochi2@example.com',
+        tel: '090-7889-1123',
         password: '123',
         password_confirmation: '123'
       }
@@ -36,6 +38,7 @@ describe "ユーザーテスト", type: :request  do
       valid_params = { 
         name: 'ポチ2', 
         email: 'pochi2@example.com',
+        tel: '090-7889-1124',
         password: '123',
         password_confirmation: '123'
       }
