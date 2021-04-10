@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   def create
     user = User.new( user_parameter )
+    user.email = params[:newmail]    #=>新メールアドレス
+
     #employeeパラメーターが付与された場合登録禁止
     if params[:employee]
         render json: {message: '登録失敗しました。内容を確認してください'}
