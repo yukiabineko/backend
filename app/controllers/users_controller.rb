@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new( user_parameter )
-    user.email = params[:newmail]    #=>新メールアドレス
+    
 
     #employeeパラメーターが付与された場合登録禁止
     if params[:employee]
@@ -36,7 +36,12 @@ class UsersController < ApplicationController
     if current_user_check?
       user = User.find( params[:id] )
       if user.update_attributes( user_parameter )
-        render json: {message: '編集しました'}
+        if user.update_attributes(email: params[:newmail])
+          render json: {message: '編集しました'}
+        else
+          errors = user.errors.full_messages
+          render json: {message: errors}  
+        end
       else
         errors = user.errors.full_messages
         render json: {message: errors}  
