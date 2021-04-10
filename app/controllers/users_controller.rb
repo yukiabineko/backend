@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :current_user_check?
+  before_action :current_user_check_edit?
   
   def index
     if current_user_check?
@@ -13,8 +14,6 @@ class UsersController < ApplicationController
 
   def create
     user = User.new( user_parameter )
-    
-
     #employeeパラメーターが付与された場合登録禁止
     if params[:employee]
         render json: {message: '登録失敗しました。内容を確認してください'}
@@ -33,15 +32,10 @@ class UsersController < ApplicationController
 
 
   def update
-    if current_user_check?
+    if current_user_check_edit?
       user = User.find( params[:id] )
       if user.update_attributes( user_parameter )
-        if user.update_attributes(email: params[:newmail])
-          render json: {message: '編集しました'}
-        else
-          errors = user.errors.full_messages
-          render json: {message: errors}  
-        end
+        render json: {message: '編集しました'}
       else
         errors = user.errors.full_messages
         render json: {message: errors}  
