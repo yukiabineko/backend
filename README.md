@@ -6,7 +6,7 @@
   * フレームワーク: Ruby on Rails 5.2.2
   * データベース: PostgresSQL 10
   * テストフレームワーク: Rspec 5.0.1
-  * 使用API: YoutubeAPI
+  * 使用API: YoutubeAPI,PayJpAPI
   * その他使用ツール: Git, VScode, CircleCi
 
 # 機能一覧(API)
