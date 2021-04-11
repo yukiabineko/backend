@@ -5,7 +5,7 @@
   * 開発言語: Ruby 2.6.3
   * フレームワーク: Ruby on Rails 5.2.2
   * データベース: PostgresSQL 10
-  * テストフレームワーク: Rspec
+  * テストフレームワーク: Rspec 5.0.1
   * 使用API: YoutubeAPI
   * その他使用ツール: Git, VScode, CircleCi
 
