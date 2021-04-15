@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def ios_update
     if current_user_check_edit?
-      user = User.find( params[:oldmail] )
+      user = User.find( params[:id] )
       if user.update_attributes( user_parameter, userData: user.user_history )
         render json: {message: '編集しました'}
       else
