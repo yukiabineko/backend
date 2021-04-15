@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     post :user_show,  on: :collection
     post 'index',     on: :collection
     post 'show',      on: :collection
-    post :ios_update, on: :collection
+    patch :ios_update, on: :collection
   end
   resources :sessions, only:[ :create]
   resources :items, except: [ :new, :edit]
