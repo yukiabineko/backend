@@ -7,7 +7,7 @@ class ProcessingsController < ApplicationController
 
   def create
     item = Item.find( params[:id] )
-     ##送信元がwebアプリの場合
+     #送信元がwebアプリの場合
     if params[:data]
       params[:data].each do |data|
         processing = item.processings.new(processing_name: data[:value])
