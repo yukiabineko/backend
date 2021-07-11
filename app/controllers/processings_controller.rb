@@ -17,7 +17,7 @@ class ProcessingsController < ApplicationController
 
     ##送信元がwindowsアプリの場合
     elsif params[:win_processes]
-      array = windows_string_to_array(params[:win_processes])
+      array = windows_string_to_array(params[:win_processes], item)
       array.each do |data|
         processing = item.processings.new(processing_name: data)
         processing.save
@@ -35,12 +35,19 @@ class ProcessingsController < ApplicationController
   end
 private
 
-  def windows_string_to_array(string)  
+## windows版の設定
+  def windows_string_to_array(strings,item)  
      newArray = []
-     string.split(",").each do |string|
-       string.present? ?newArray<< string : ""
+     strings.split(",").each do |string|
+        ##被りプロセスあるか確認(item modelにて)
+        result = item.existing_process_check(string)
+        if(result == true)
+          string.present? ?newArray<< string : ""
+        end
      end
      return newArray.uniq
   end
+
+
   
 end

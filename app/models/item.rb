@@ -10,4 +10,17 @@ class Item < ApplicationRecord
     end
     return str
   end
+
+  ##登録時加工被りあるかチェック
+
+ def existing_process_check(set_process)
+   result = true
+   self.processings.each do |process|
+     if set_process == process
+       result = false
+     end
+   end
+   return result
+ end
+
 end
