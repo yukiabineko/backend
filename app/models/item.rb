@@ -16,7 +16,7 @@ class Item < ApplicationRecord
  def existing_process_check(set_process)
    result = true
    self.processings.each do |process|
-     if set_process == process
+     if set_process == process.processing_name
        result = false
      end
    end
